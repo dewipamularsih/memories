@@ -1240,42 +1240,85 @@ body {
 
 </section>
 <!-- PreWedding Gallery -->
-<section class="prewed-gallery" style=" color:#8b5e3c; padding:60px 20px; text-align:center;">
-  <h2 style="
-    font-family: 'Great Vibes', cursive;
-    font-size:4rem;
-    font-weight:normal;
-    margin-bottom:20px;
-    color:#a46a3d;
-  ">
-    PreWedding
-    <span style="
-      font-family: 'Playfair Display', serif;
-      font-style:italic;
-      font-size:2rem;
-      color:#555;
-      display:block;
-      margin-top:-10px;
-    ">
-      Gallery
-    </span>
-  </h2>
-</section>
-  <!-- Grid Foto -->
-  <div class="gallery-grid" style="
-    display:grid; 
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap:20px; 
-    max-width:900px; 
-    margin:0 auto 40px;">
-    
-    <img src="img/gambar1.jpg" alt="Prewed 1" style="width:100%; border-radius:12px; object-fit:cover;">
-    <img src="img/gambar2.jpg" alt="Prewed 2" style="width:100%; border-radius:12px; object-fit:cover;">
-    <img src="img/gambar3.jpg" alt="Prewed 3" style="width:100%; border-radius:12px; object-fit:cover;">
-    <img src="img/gambar4.jpg" alt="Prewed 4" style="width:100%; border-radius:12px; object-fit:cover;">
-    <img src="img/gambar5.jpg" alt="Prewed 4" style="width:100%; border-radius:12px; object-fit:cover;">
-    <img src="img/gambar6.jpg" alt="Prewed 4" style="width:100%; border-radius:12px; object-fit:cover;">
+<!-- SECTION PREWEDDING -->
+<section class="prewedding-section">
+  <h2 class="section-title">Prewedding Gallery</h2>
+  <div class="slider-container">
+    <div class="slides">
+      <img src="img/gambar1.jpg" alt="Prewedding 1">
+      <img src="img/gambar2.jpg" alt="Prewedding 2">
+      <img src="img/gambar3.jpg" alt="Prewedding 3">
+      <img src="img/gambar4.jpg" alt="Prewedding 4">
+    </div>
+    <!-- Tombol navigasi -->
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
   </div>
+</section>
+
+<style>
+.slider-container {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+/* Tombol prev & next */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s;
+  z-index: 10;
+}
+.prev:hover, .next:hover {
+  background: rgba(0,0,0,0.8);
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+</style>
+
+<script>
+const slides = document.querySelector('.slides');
+const images = document.querySelectorAll('.slides img');
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+
+let index = 0;
+
+function showSlide(i) {
+  index = (i + images.length) % images.length;
+  slides.style.transform = `translateX(${-index * 100}%)`;
+}
+
+prev.addEventListener('click', () => showSlide(index - 1));
+next.addEventListener('click', () => showSlide(index + 1));
+
+// otomatis jalan tiap 5 detik
+setInterval(() => showSlide(index + 1), 5000);
+</script>
+
   <!-- Teks Puisi -->
   <p style="max-width:700px; margin:0 auto 60px auto; font-size:1rem; line-height:1.8; font-style:italic;text-align:center;">
   Dalam hening malam yang paling sunyi, aku memandangmu dengan mata penuh doa.<br>
@@ -1563,6 +1606,7 @@ function copyAccountNew(elementId, btn) {
 </script>
 </body>
 </html>
+
 
 
 
