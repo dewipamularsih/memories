@@ -1455,7 +1455,7 @@ dengan hati yang kini menemukan rumahnya.<br>
     
     <div class="bank-accounts fade-in">
       <div class="gift-card">
-        <h2>BANK BCA</h2>
+        <h2>BANK MANDIRI</h2>
         <div class="gift-divider">
           <span class="icon">🌿</span>
         </div>
@@ -1468,7 +1468,7 @@ dengan hati yang kini menemukan rumahnya.<br>
       </div>
       
       <div class="gift-card fade-in">
-        <h2>BANK BRI</h2>
+        <h2>BANK BCA</h2>
         <div class="gift-divider">
           <span class="icon">🌿</span>
         </div>
@@ -1648,3 +1648,4 @@ function copyAccountNew(elementId, btn) {
 </script>
 </body>
 </html>
+
