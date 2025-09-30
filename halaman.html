@@ -652,48 +652,7 @@ body {
   position: relative;
 }
 
-.prewedding-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-  margin-top: 60px;
-  padding: 40px;
-  position: relative;
-  z-index: 2;
 
-  /* 🎨 Tambahin ini biar background abu-abu muda agak tua */
-  background-color: #B2B1B6 !important;
-
-  border-radius: 16px;
-}
-
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  aspect-ratio: 1;
-  transition: all 0.3s ease;
-  background: #ffffff;
-  backdrop-filter: none;
-  border: 1px solid #e8e6e3;
-}
-
-.gallery-item:hover {
-  transform: translateY(-8px);
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: all 0.5s ease;
-  filter: brightness(0.9);
-}
-
-.gallery-item:hover img {
-  transform: scale(1.1);
-  filter: brightness(1.1);
-}
 
 .gallery-item::after {
   content: '';
@@ -1204,16 +1163,49 @@ body {
   font-size: 3.5rem;
   font-weight: normal;
 }
+.prewedding-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* default desktop/laptop */
+  gap: 15px;
+  margin-top: 60px;
+  padding: 40px;
+  background-color: #B2B1B6 !important;
+  border-radius: 16px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  aspect-ratio: 1;
+  transition: all 0.3s ease;
+  background: #ffffff;
+  border: 1px solid #e8e6e3;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+  filter: brightness(0.9);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+/* 📱 Mobile: tetap 3 kolom */
 @media (max-width: 480px) {
   .prewedding-gallery {
-    grid-template-columns: repeat(2, 1fr) !important; /* 🔥 paksa 2 sisi */
-    padding: 0 15px;
-    gap: 10px;
+    grid-template-columns: repeat(3, 1fr) !important; /* ✅ paksa 3 kolom */
+    gap: 8px;
+    padding: 10px;
   }
 
   .gallery-item {
-    aspect-ratio: 1;
-    border-radius: 8px;
+    border-radius: 6px;
   }
 }
 
@@ -1661,5 +1653,6 @@ function copyAccountNew(elementId, btn) {
 </script>
 </body>
 </html>
+
 
 
