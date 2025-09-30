@@ -1206,13 +1206,13 @@ body {
 }
 @media (max-width: 480px) {
   .prewedding-gallery {
-    grid-template-columns: repeat(2, 1fr); /* ✅ jadi 2 sisi di HP */
+    grid-template-columns: repeat(2, 1fr) !important; /* 🔥 paksa 2 sisi */
     padding: 0 15px;
-    gap: 10px; /* jarak antar foto biar rapi */
+    gap: 10px;
   }
 
   .gallery-item {
-    aspect-ratio: 1; /* tetap kotak */
+    aspect-ratio: 1;
     border-radius: 8px;
   }
 }
@@ -1661,4 +1661,5 @@ function copyAccountNew(elementId, btn) {
 </script>
 </body>
 </html>
+
 
