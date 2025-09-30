@@ -120,29 +120,6 @@ body {
 }
 
 /* GALERI FOTO - Sudah dikecilkan dan diberi jarak dari teks */
-.photo-gallery {
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: center;
-  gap: 15px; /* jarak antar foto */
-  margin-top: 30px; /* jarak antara teks dan foto */
-  margin-bottom: 50px;
-  flex-wrap: wrap;
-}
-.photo-gallery img {
-  width: 30vw; /* ukuran foto lebih kecil */
-  height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  transition: transform 0.3s;
-  cursor: pointer;
-}
-.photo-gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #000;
-}
-
 .bride-groom-section {
   max-width: 700px;
   margin: 0 auto 50px auto;
@@ -651,23 +628,6 @@ body {
   margin-bottom: 60px;
   position: relative;
 }
-
-
-
-.gallery-item::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover::after {
-  opacity: 1;
-}
   /* Wedding text */
     .wedding-text {
       font-size: 0.8rem;
@@ -1012,10 +972,6 @@ body {
     width: 120px !important;
     height: 150px !important;
   }
-  .prewedding-gallery {
-    grid-template-columns: 1fr;
-    padding: 0 10px;
-  }
   .event-card h3 {
     font-size: 1.3rem;
   }
@@ -1163,53 +1119,6 @@ body {
   font-size: 3.5rem;
   font-weight: normal;
 }
-.prewedding-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-  margin-top: 60px;
-  padding: 40px;
-  background-color: #B2B1B6 !important;
-  border-radius: 16px;
-}
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  aspect-ratio: 1;
-  transition: all 0.3s ease;
-  background: #ffffff;
-  border: 1px solid #e8e6e3;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.1);
-  filter: brightness(1.1);
-}
-
-/* 📱 Mobile: tetap 3 kolom */
-@media screen and (max-width: 480px) {
-  .prewedding-gallery {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr !important; /* 🔥 fix 3 kolom */
-    gap: 5px !important;
-    padding: 5px !important;
-  }
-
- .gallery-item img {
-    height: auto !important;
-    max-width: 100% !important;
-  }
-}
-
 </style>
 </head>
 <body>
@@ -1654,6 +1563,7 @@ function copyAccountNew(elementId, btn) {
 </script>
 </body>
 </html>
+
 
 
 
