@@ -1204,6 +1204,19 @@ body {
   font-size: 3.5rem;
   font-weight: normal;
 }
+@media (max-width: 480px) {
+  .prewedding-gallery {
+    grid-template-columns: repeat(2, 1fr); /* ✅ jadi 2 sisi di HP */
+    padding: 0 15px;
+    gap: 10px; /* jarak antar foto biar rapi */
+  }
+
+  .gallery-item {
+    aspect-ratio: 1; /* tetap kotak */
+    border-radius: 8px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1648,3 +1661,4 @@ function copyAccountNew(elementId, btn) {
 </script>
 </body>
 </html>
+
