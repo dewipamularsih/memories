@@ -120,6 +120,29 @@ body {
 }
 
 /* GALERI FOTO - Sudah dikecilkan dan diberi jarak dari teks */
+.photo-gallery {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* jarak antar foto */
+  margin-top: 30px; /* jarak antara teks dan foto */
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+.photo-gallery img {
+  width: 30vw; /* ukuran foto lebih kecil */
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+.photo-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #000;
+}
+
 .bride-groom-section {
   max-width: 700px;
   margin: 0 auto 50px auto;
@@ -628,6 +651,64 @@ body {
   margin-bottom: 60px;
   position: relative;
 }
+
+.prewedding-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 60px;
+  padding: 40px;
+  position: relative;
+  z-index: 2;
+
+  /* 🎨 Tambahin ini biar background abu-abu muda agak tua */
+  background-color: #B2B1B6 !important;
+
+  border-radius: 16px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  aspect-ratio: 1;
+  transition: all 0.3s ease;
+  background: #ffffff;
+  backdrop-filter: none;
+  border: 1px solid #e8e6e3;
+}
+
+.gallery-item:hover {
+  transform: translateY(-8px);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+  filter: brightness(0.9);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover::after {
+  opacity: 1;
+}
   /* Wedding text */
     .wedding-text {
       font-size: 0.8rem;
@@ -972,6 +1053,10 @@ body {
     width: 120px !important;
     height: 150px !important;
   }
+  .prewedding-gallery {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
   .event-card h3 {
     font-size: 1.3rem;
   }
@@ -1240,85 +1325,42 @@ body {
 
 </section>
 <!-- PreWedding Gallery -->
-<!-- SECTION PREWEDDING -->
-<section class="prewedding-section">
-  <h2 class="section-title">Prewedding Gallery</h2>
-  <div class="slider-container">
-    <div class="slides">
-      <img src="img/gambar1.jpg" alt="Prewedding 1">
-      <img src="img/gambar2.jpg" alt="Prewedding 2">
-      <img src="img/gambar3.jpg" alt="Prewedding 3">
-      <img src="img/gambar4.jpg" alt="Prewedding 4">
-    </div>
-    <!-- Tombol navigasi -->
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
-  </div>
+<section class="prewed-gallery" style=" color:#8b5e3c; padding:60px 20px; text-align:center;">
+  <h2 style="
+    font-family: 'Great Vibes', cursive;
+    font-size:4rem;
+    font-weight:normal;
+    margin-bottom:20px;
+    color:#a46a3d;
+  ">
+    PreWedding
+    <span style="
+      font-family: 'Playfair Display', serif;
+      font-style:italic;
+      font-size:2rem;
+      color:#555;
+      display:block;
+      margin-top:-10px;
+    ">
+      Gallery
+    </span>
+  </h2>
 </section>
-
-<style>
-.slider-container {
-  position: relative;
-  max-width: 800px;
-  margin: auto;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-.slides {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.slides img {
-  width: 100%;
-  flex-shrink: 0;
-  object-fit: cover;
-}
-
-/* Tombol prev & next */
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  font-size: 2rem;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background 0.3s;
-  z-index: 10;
-}
-.prev:hover, .next:hover {
-  background: rgba(0,0,0,0.8);
-}
-.prev { left: 10px; }
-.next { right: 10px; }
-</style>
-
-<script>
-const slides = document.querySelector('.slides');
-const images = document.querySelectorAll('.slides img');
-const prev = document.querySelector('.prev');
-const next = document.querySelector('.next');
-
-let index = 0;
-
-function showSlide(i) {
-  index = (i + images.length) % images.length;
-  slides.style.transform = `translateX(${-index * 100}%)`;
-}
-
-prev.addEventListener('click', () => showSlide(index - 1));
-next.addEventListener('click', () => showSlide(index + 1));
-
-// otomatis jalan tiap 5 detik
-setInterval(() => showSlide(index + 1), 5000);
-</script>
-
+  <!-- Grid Foto -->
+  <div class="gallery-grid" style="
+    display:grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap:20px; 
+    max-width:900px; 
+    margin:0 auto 40px;">
+    
+    <img src="img/gambar1.jpg" alt="Prewed 1" style="width:100%; border-radius:12px; object-fit:cover;">
+    <img src="img/gambar2.jpg" alt="Prewed 2" style="width:100%; border-radius:12px; object-fit:cover;">
+    <img src="img/gambar3.jpg" alt="Prewed 3" style="width:100%; border-radius:12px; object-fit:cover;">
+    <img src="img/gambar4.jpg" alt="Prewed 4" style="width:100%; border-radius:12px; object-fit:cover;">
+    <img src="img/gambar5.jpg" alt="Prewed 4" style="width:100%; border-radius:12px; object-fit:cover;">
+    <img src="img/gambar6.jpg" alt="Prewed 4" style="width:100%; border-radius:12px; object-fit:cover;">
+  </div>
   <!-- Teks Puisi -->
   <p style="max-width:700px; margin:0 auto 60px auto; font-size:1rem; line-height:1.8; font-style:italic;text-align:center;">
   Dalam hening malam yang paling sunyi, aku memandangmu dengan mata penuh doa.<br>
@@ -1606,9 +1648,3 @@ function copyAccountNew(elementId, btn) {
 </script>
 </body>
 </html>
-
-
-
-
-
-
